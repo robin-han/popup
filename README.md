@@ -1,6 +1,4 @@
-## Config
-Usage:
-
+## Usage
 ```js
 Popup.open(dialog,
       {
