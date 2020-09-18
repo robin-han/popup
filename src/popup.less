@@ -1,0 +1,197 @@
+@popup-arrow-size: 10px;
+@popup-back-color: #fff;
+@popup-border-color: #ccc;
+@text-font-size: 14px;
+@text-font-name: Avenir, Helvetica, Arial, sans-serif;
+
+.c-modal-backdrop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 999;
+}
+
+.c-popup {
+  position: absolute;
+  z-index: 1000;
+  border: 1px solid @popup-border-color;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  font-size: @text-font-size;
+  font-family: @text-font-name;
+  display: none;
+  
+  &.open {
+    display: block;
+  }
+
+  .arrow-up {
+    position: absolute;
+    top: 0;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+
+      width: 0;
+      height: 0;
+      border-left: @popup-arrow-size solid transparent;
+      border-right: @popup-arrow-size solid transparent;
+      border-bottom: @popup-arrow-size solid @popup-border-color;
+      top: -@popup-arrow-size;
+      right: -@popup-arrow-size
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+
+      width: 0;
+      height: 0;
+      border-left: @popup-arrow-size solid transparent;
+      border-right: @popup-arrow-size solid transparent;
+      border-bottom: @popup-arrow-size solid @popup-back-color;
+      top: -@popup-arrow-size + 1px;
+      right: -@popup-arrow-size
+    }
+  }
+
+  .arrow-down {
+    position: absolute;
+    bottom: 0;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+
+      width: 0;
+      height: 0;
+      border-left: @popup-arrow-size solid transparent;
+      border-right: @popup-arrow-size solid transparent;
+      border-top: @popup-arrow-size solid @popup-border-color;
+      bottom: -@popup-arrow-size;
+      right: -@popup-arrow-size
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+
+      width: 0;
+      height: 0;
+      border-left: @popup-arrow-size solid transparent;
+      border-right: @popup-arrow-size solid transparent;
+      border-top: @popup-arrow-size solid @popup-back-color;
+      bottom: -@popup-arrow-size + 1px;
+      right: -@popup-arrow-size
+    }
+  }
+
+  .arrow-right {
+    position: absolute;
+    right: 0;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+
+      width: 0;
+      height: 0;
+      border-top: @popup-arrow-size solid transparent;
+      border-bottom: @popup-arrow-size solid transparent;
+      border-left: @popup-arrow-size solid @popup-border-color;
+      right: -@popup-arrow-size;
+      top: -@popup-arrow-size
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+
+      width: 0;
+      height: 0;
+      border-top: @popup-arrow-size solid transparent;
+      border-bottom: @popup-arrow-size solid transparent;
+      border-left: @popup-arrow-size solid @popup-back-color;
+      right: -@popup-arrow-size + 1px;
+      top: -@popup-arrow-size
+    }
+
+  }
+
+  .arrow-left {
+    position: absolute;
+    left: 0;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+
+      width: 0;
+      height: 0;
+      border-top: @popup-arrow-size solid transparent;
+      border-bottom: @popup-arrow-size solid transparent;
+      border-right: @popup-arrow-size solid @popup-border-color;
+      left: -@popup-arrow-size;
+      top: -@popup-arrow-size
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+
+      width: 0;
+      height: 0;
+      border-top: @popup-arrow-size solid transparent;
+      border-bottom: @popup-arrow-size solid transparent;
+      border-right: @popup-arrow-size solid @popup-back-color;
+      left: -@popup-arrow-size + 1px;
+      top: -@popup-arrow-size
+    }
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .c-modal-backdrop {
+    display: none;
+  }
+
+  .c-popup.c-modal {
+    .arrow-down,
+    .arrow-up,
+    .arrow-left,
+    .arrow-right {
+      display: block;
+    }
+  }
+}
+@media (max-width: 1023px) {
+  .c-modal-backdrop {
+    display: block;
+  }
+
+  .c-popup.c-modal {
+    .arrow-down,
+    .arrow-up,
+    .arrow-left,
+    .arrow-right {
+      display: none;
+    }
+
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+  }
+}
